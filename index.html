@@ -5,17 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Campus Market Sénégal</title>
 <style>
-body{margin:0;background:#0F172A;color:white;font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center}
-h1{color:#10B981;font-size:2em}
-p{color:#94A3B8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0F172A;color:white;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.header{background:linear-gradient(135deg,#1D4ED8,#10B981);padding:16px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+.hero{padding:40px 20px;text-align:center}
+.hero h1{font-size:28px;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#1D4ED8,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#94A3B8;font-size:14px;margin-bottom:24px}
+.badge{background:rgba(16,185,129,0.15);color:#10B981;border:1px solid #10B981;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block;margin-bottom:20px}
+.search{background:#1E293B;border:1.5px solid #334155;border-radius:14px;padding:12px 16px;width:100%;color:white;font-size:14px;margin-bottom:20px}
+.cats{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:24px}
+.cat{background:#1E293B;border:1px solid #334155;border-radius:12px;padding:10px 14px;white-space:nowrap;font-size:12px;font-weight:600;color:#94A3B8;cursor:pointer}
+.cat.active{background:linear-gradient(135deg,#1D4ED8,#10B981);color:white;border:none}
+.section-title{font-size:18px;font-weight:700;margin-bottom:16px;padding:0 20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 20px}
+.card{background:#1E293B;border-radius:16px;overflow:hidden;border:1px solid #334155}
+.card img{width:100%;height:140px;object-fit:cover}
+.card-body{padding:10px 12px}
+.card-title{font-size:13px;font-weight:600;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-price{color:#10B981;font-weight:800;font-size:15px;margin-bottom:4px}
+.card-info{font-size:11px;color:#64748B}
+.verified{color:#10B981;font-size:10px;background:rgba(16,185,129,0.1);padding:2px 6px;border-radius:6px;border:1px solid rgba(16,185,129,0.3)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);border-top:1px solid #1E293B;display:flex;padding:8px 0 16px}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#475569;cursor:pointer}
+.nav-item.active{color:#1D4ED8}
+.nav-icon{font-size:22px}
+.sell-btn{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#1D4ED8,#10B981);display:flex;align-items:center;justify-content:center;font-size:24px;margin-top:-20px;box-shadow:0 4px 16px rgba(29,78,216,0.5)}
+.content{padding-bottom:90px}
+.uidt-badge{background:rgba(29,78,216,0.15);color:#60A5FA;border:1px solid rgba(29,78,216,0.3);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:12px}
 </style>
 </head>
 <body>
-<div>
-<div style="font-size:60px">🎓</div>
-<h1>Campus Market Sénégal</h1>
-<p>Première marketplace étudiante du Sénégal</p>
-<p>🚀 Bientôt disponible !</p>
+<div class="header">
+<div class="logo">🎓 Campus Market</div>
+<div style="font-size:11px;color:rgba(255,255,255,0.8)">📍 UIDT Thiès</div>
+</div>
+
+<div class="content">
+<div class="hero">
+<div class="uidt-badge">🎓 Université Ibader Thiam de Thiès</div>
+<div class="badge">✓ Première marketplace étudiante du Sénégal</div>
+<h1>Achète & Vends sur ton Campus</h1>
+<p>La plateforme sécurisée des étudiants sénégalais</p>
+<input class="search" placeholder="🔍 Rechercher produits, services...">
+</div>
+
+<div style="padding:0 20px;overflow-x:auto">
+<div class="cats">
+<div class="cat active">Tout</div>
+<div class="cat">📱 Téléphones</div>
+<div class="cat">💻 Ordinateurs</div>
+<div class="cat">📚 Livres</div>
+<div class="cat">👗 Vêtements</div>
+<div class="cat">🛠️ Services</div>
+<div class="cat">🏠 Logement</div>
+<div class="cat">💼 Emplois</div>
+</div>
+</div>
+
+<div class="section-title">⚡ En Vedette</div>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80">
+<div class="card-body">
+<div class="card-title">iPhone 14 Pro Max</div>
+<div class="card-price">650 000 FCFA</div>
+<div class="card-info">📍 Thiès • <span class="verified">✓ Vérifié</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80">
+<div class="card-body">
+<div class="card-title">MacBook Pro M2</div>
+<div class="card-price">1 200 000 FCFA</div>
+<div class="card-info">📍 Thiès • <span class="verified">✓ Vérifié</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80">
+<div class="card-body">
+<div class="card-title">Nike Air Jordan</div>
+<div class="card-price">85 000 FCFA</div>
+<div class="card-info">📍 Thiès • <span class="verified">✓ Vérifié</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80">
+<div class="card-body">
+<div class="card-title">Cours Maths MPSI</div>
+<div class="card-price">5 000 FCFA</div>
+<div class="card-info">📍 UIDT • <span class="verified">✓ Vérifié</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&q=80">
+<div class="card-body">
+<div class="card-title">Chambre meublée</div>
+<div class="card-price">75 000 FCFA</div>
+<div class="card-info">📍 Thiès • 🏠 Logement</div>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80">
+<div class="card-body">
+<div class="card-title">Sony WH-1000XM5</div>
+<div class="card-price">180 000 FCFA</div>
+<div class="card-info">📍 Thiès • <span class="verified">✓ Vérifié</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bottom-nav">
+<div class="nav-item active">
+<div class="nav-icon">🏠</div>
+<span>Accueil</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">🔍</div>
+<span>Explorer</span>
+</div>
+<div class="nav-item">
+<div class="sell-btn">➕</div>
+<span style="color:#10B981;font-weight:700">Vendre</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">💬</div>
+<span>Messages</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">👤</div>
+<span>Profil</span>
+</div>
 </div>
 </body>
-</html>
+  </html>
