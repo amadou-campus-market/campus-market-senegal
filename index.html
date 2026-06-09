@@ -8,40 +8,81 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0F172A;color:white;font-family:'DM Sans',sans-serif;min-height:100vh}
+
+/* HEADER */
 .header{background:linear-gradient(135deg,#1D4ED8,#10B981);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(29,78,216,0.4)}
 .logo{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-weight:800;font-size:18px}
-.location{font-size:11px;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:20px;backdrop-filter:blur(8px)}
+.location{font-size:11px;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:20px}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* AUTH PAGE */
+.auth-bg{min-height:100vh;background:linear-gradient(135deg,#0F172A 0%,#1E293B 50%,#0F172A 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.auth-logo{text-align:center;margin-bottom:28px}
+.auth-logo-icon{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#1D4ED8,#10B981);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px;box-shadow:0 8px 32px rgba(29,78,216,0.4)}
+.auth-logo h1{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;color:#F1F5F9}
+.auth-logo p{color:#10B981;font-weight:600;font-size:13px;margin-top:4px;letter-spacing:0.08em}
+.auth-card{width:100%;max-width:400px;background:rgba(30,41,59,0.9);border-radius:24px;padding:28px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.auth-tabs{display:flex;background:#0F172A;border-radius:12px;padding:4px;margin-bottom:24px}
+.auth-tab{flex:1;padding:8px 0;border-radius:9px;border:none;cursor:pointer;font-weight:600;font-size:13px;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.auth-tab.active{background:linear-gradient(135deg,#1D4ED8,#10B981);color:white}
+.auth-tab:not(.active){background:transparent;color:#64748B}
+.input-group{margin-bottom:14px}
+.input-label{font-size:12px;font-weight:600;color:#94A3B8;display:block;margin-bottom:6px}
+.input-wrap{position:relative}
+.input-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px}
+.input-field{width:100%;padding:11px 12px 11px 38px;border-radius:10px;border:1.5px solid #334155;background:#0F172A;color:#F1F5F9;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.input-field:focus{border-color:#1D4ED8}
+.input-field::placeholder{color:#475569}
+.select-field{width:100%;padding:11px 12px 11px 38px;border-radius:10px;border:1.5px solid #334155;background:#0F172A;color:#F1F5F9;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;appearance:none}
+.btn-primary{width:100%;padding:13px 0;border-radius:12px;border:none;background:linear-gradient(135deg,#1D4ED8,#10B981);color:white;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 20px rgba(29,78,216,0.4);transition:opacity 0.2s;margin-top:4px}
+.btn-primary:active{opacity:0.8}
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.divider-line{flex:1;height:1px;background:#334155}
+.divider-text{font-size:12px;color:#64748B}
+.social-btns{display:flex;gap:8px}
+.social-btn{flex:1;padding:10px 0;border-radius:10px;border:1.5px solid #334155;background:#0F172A;color:#F1F5F9;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* OTP */
+.otp-wrap{display:flex;gap:8px;justify-content:center;margin-bottom:24px}
+.otp-input{width:44px;height:52px;text-align:center;font-size:20px;font-weight:700;border-radius:12px;border:2px solid #334155;background:#0F172A;color:#F1F5F9;outline:none}
+.otp-input:focus{border-color:#10B981}
+
+/* HOME PAGE */
+.home-content{padding-bottom:100px}
 .hero{padding:28px 16px 20px;text-align:center;background:linear-gradient(180deg,rgba(29,78,216,0.08),transparent)}
 .uidt-badge{background:rgba(29,78,216,0.2);color:#60A5FA;border:1px solid rgba(96,165,250,0.4);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:10px}
 .first-badge{background:rgba(16,185,129,0.15);color:#10B981;border:1px solid rgba(16,185,129,0.4);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:16px}
 .hero h1{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#60A5FA,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
 .hero p{color:#94A3B8;font-size:13px;margin-bottom:20px}
 .search-wrap{position:relative;margin-bottom:8px}
-.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px}
-.search{background:#1E293B;border:1.5px solid #334155;border-radius:14px;padding:13px 16px 13px 42px;width:100%;color:white;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
-.search:focus{border-color:#1D4ED8}
-.search::placeholder{color:#475569}
-.filter-row{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;padding-bottom:4px}
+.search-icon-h{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px}
+.search-h{background:#1E293B;border:1.5px solid #334155;border-radius:14px;padding:13px 16px 13px 42px;width:100%;color:white;font-size:14px;font-family:'DM Sans',sans-serif;outline:none}
+.search-h::placeholder{color:#475569}
+.filter-row{display:flex;gap:8px;margin-bottom:8px;overflow-x:auto;padding-bottom:4px;padding:0 16px 8px}
 .filter-btn{background:#1E293B;border:1px solid #334155;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;color:#64748B;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif}
 .filter-btn.active{background:#1D4ED8;color:white;border-color:#1D4ED8}
 .cats{display:flex;gap:10px;overflow-x:auto;padding:0 16px 16px;scrollbar-width:none}
-.cats::-webkit-scrollbar{display:none}
-.cat{background:#1E293B;border:1.5px solid #334155;border-radius:12px;padding:10px 16px;white-space:nowrap;font-size:12px;font-weight:600;color:#94A3B8;cursor:pointer;flex-shrink:0;transition:all 0.2s}
-.cat.active{background:linear-gradient(135deg,#1D4ED8,#10B981);color:white;border-color:transparent;box-shadow:0 4px 12px rgba(29,78,216,0.4)}
+.cat{background:#1E293B;border:1.5px solid #334155;border-radius:12px;padding:10px 16px;white-space:nowrap;font-size:12px;font-weight:600;color:#94A3B8;cursor:pointer;flex-shrink:0}
+.cat.active{background:linear-gradient(135deg,#1D4ED8,#10B981);color:white;border-color:transparent}
+.stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 16px 20px}
+.stat-card{background:#1E293B;border-radius:14px;padding:14px;text-align:center;border:1px solid #334155}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#10B981}
+.stat-label{font-size:11px;color:#64748B;margin-top:3px}
 .section-header{display:flex;align-items:center;justify-content:space-between;padding:0 16px;margin-bottom:12px}
 .section-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700}
 .see-all{font-size:12px;color:#1D4ED8;font-weight:600}
 .featured-scroll{display:flex;gap:12px;overflow-x:auto;padding:0 16px 16px;scrollbar-width:none}
-.featured-scroll::-webkit-scrollbar{display:none}
-.featured-card{min-width:240px;border-radius:20px;overflow:hidden;position:relative;flex-shrink:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.featured-card{min-width:240px;border-radius:20px;overflow:hidden;position:relative;flex-shrink:0;cursor:pointer}
 .featured-card img{width:100%;height:160px;object-fit:cover}
 .featured-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.75),transparent 60%)}
 .featured-info{position:absolute;bottom:0;left:0;right:0;padding:14px}
 .featured-title{font-weight:700;font-size:14px;margin-bottom:4px}
 .featured-price{color:#10B981;font-weight:800;font-size:16px;font-family:'Syne',sans-serif}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 20px}
-.card{background:#1E293B;border-radius:16px;overflow:hidden;border:1px solid #334155;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
-.card:active{transform:scale(0.97)}
+.card{background:#1E293B;border-radius:16px;overflow:hidden;border:1px solid #334155;cursor:pointer}
 .card img{width:100%;height:130px;object-fit:cover}
 .card-body{padding:10px 12px 12px}
 .card-title{font-size:13px;font-weight:600;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#F1F5F9}
@@ -49,240 +90,233 @@ body{background:#0F172A;color:white;font-family:'DM Sans',sans-serif;min-height:
 .card-meta{display:flex;align-items:center;justify-content:space-between}
 .card-location{font-size:10px;color:#64748B}
 .verified{color:#10B981;font-size:10px;font-weight:700;background:rgba(16,185,129,0.1);padding:2px 6px;border-radius:6px;border:1px solid rgba(16,185,129,0.3)}
-.trending-badge{position:absolute;top:8px;left:8px;background:rgba(239,68,68,0.9);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px}
-.new-badge{position:absolute;top:8px;left:8px;background:rgba(29,78,216,0.9);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px}
-.fav-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);border:none;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;backdrop-filter:blur(4px)}
-.stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 16px 20px}
-.stat-card{background:#1E293B;border-radius:14px;padding:14px;text-align:center;border:1px solid #334155}
-.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#10B981}
-.stat-label{font-size:11px;color:#64748B;margin-top:3px}
+.badge-hot{position:absolute;top:8px;left:8px;background:rgba(239,68,68,0.9);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px}
+.badge-new{position:absolute;top:8px;left:8px;background:rgba(29,78,216,0.9);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px}
+.fav-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);border:none;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
+.wave-banner{margin:0 16px 20px;background:linear-gradient(135deg,#1D4ED8,#0F766E);border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px}
+.wave-text h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin-bottom:3px}
+.wave-text p{font-size:12px;color:rgba(255,255,255,0.75)}
+
+/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(24px);border-top:1px solid #1E293B;display:flex;padding:8px 0 18px;box-shadow:0 -8px 32px rgba(0,0,0,0.3)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#475569;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600}
 .nav-item.active{color:#1D4ED8}
 .nav-dot{width:4px;height:4px;border-radius:50%;background:#1D4ED8;margin:0 auto}
 .nav-icon{font-size:22px}
 .sell-btn{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#1D4ED8,#10B981);display:flex;align-items:center;justify-content:center;font-size:24px;margin-top:-22px;box-shadow:0 4px 20px rgba(29,78,216,0.5)}
-.content{padding-bottom:100px}
-.wave-banner{margin:0 16px 20px;background:linear-gradient(135deg,#1D4ED8,#0F766E);border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(29,78,216,0.3)}
-.wave-text h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin-bottom:3px}
-.wave-text p{font-size:12px;color:rgba(255,255,255,0.75)}
+
+/* PROFILE PAGE */
+.profile-header{background:linear-gradient(135deg,#1D4ED8,#10B981);padding:40px 20px 60px;text-align:center;position:relative}
+.profile-avatar{width:80px;height:80px;border-radius:24px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:36px;border:3px solid rgba(255,255,255,0.4)}
+.profile-name{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:white;margin-bottom:8px}
+.profile-stats{margin:-30px 16px 0;background:#1E293B;border-radius:20px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.4);position:relative;z-index:10;border:1px solid #334155;display:grid;grid-template-columns:1fr 1fr 1fr}
+.profile-stat{text-align:center;border-right:1px solid #334155}
+.profile-stat:last-child{border-right:none}
+.profile-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#10B981}
+.profile-stat-label{font-size:12px;color:#64748B;margin-top:2px}
+.wallet-card{margin:16px;background:linear-gradient(135deg,#1D4ED8,#0F766E);border-radius:20px;padding:20px;box-shadow:0 8px 24px rgba(29,78,216,0.3)}
+.wallet-label{color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;margin-bottom:8px;letter-spacing:0.08em}
+.wallet-amount{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:white;margin-bottom:16px}
+.wallet-btns{display:flex;gap:8px}
+.wallet-btn{flex:1;padding:10px 0;border-radius:10px;border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:white;font-weight:700;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.menu-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#1E293B;border-radius:14px;margin:0 16px 8px;cursor:pointer;border:1px solid #334155}
+.menu-icon{font-size:20px}
+.menu-label{font-size:14px;font-weight:600;color:#F1F5F9}
+.menu-arrow{margin-left:auto;color:#475569}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.animate{animation:fadeUp 0.5s ease forwards}
+.animate{animation:fadeUp 0.4s ease forwards}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">🎓 Campus Market</div>
-  <div class="location">📍 UIDT Thiès</div>
-</div>
-
-<div class="content">
-
-<div class="hero animate">
-  <div class="uidt-badge">🎓 Université Ibader Thiam de Thiès</div><br>
-  <div class="first-badge">✓ Première marketplace étudiante du Sénégal</div>
-  <h1>Achète & Vends sur ton Campus</h1>
-  <p>La plateforme sécurisée des étudiants sénégalais 🇸🇳</p>
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input class="search" placeholder="Rechercher produits, services, logements...">
+<!-- ═══ AUTH PAGE ═══ -->
+<div id="authPage" class="page active">
+<div class="auth-bg">
+  <div class="auth-logo animate">
+    <div class="auth-logo-icon">🎓</div>
+    <h1>Campus Market</h1>
+    <p>SÉNÉGAL • UIDT THIÈS</p>
   </div>
-</div>
-
-<div style="padding:0 16px;margin-bottom:8px">
-  <div class="filter-row">
-    <button class="filter-btn active">Tout</button>
-    <button class="filter-btn">⚡ Vedettes</button>
-    <button class="filter-btn">🔥 Tendances</button>
-    <button class="filter-btn">✓ Vérifiés</button>
-    <button class="filter-btn">🆕 Récents</button>
-  </div>
-</div>
-
-<div class="cats">
-  <div class="cat active">Tout</div>
-  <div class="cat">📱 Téléphones</div>
-  <div class="cat">💻 Ordinateurs</div>
-  <div class="cat">📚 Livres</div>
-  <div class="cat">👗 Vêtements</div>
-  <div class="cat">⌚ Montres</div>
-  <div class="cat">🔌 Électronique</div>
-  <div class="cat">⚽ Sport</div>
-  <div class="cat">🛋️ Mobilier</div>
-  <div class="cat">🛠️ Services</div>
-  <div class="cat">🏠 Logement</div>
-  <div class="cat">💼 Emplois</div>
-</div>
-
-<div class="stats-row animate">
-  <div class="stat-card">
-    <div class="stat-num">247</div>
-    <div class="stat-label">Étudiants</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num">89</div>
-    <div class="stat-label">Annonces</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num">4.9★</div>
-    <div class="stat-label">Note moy.</div>
-  </div>
-</div>
-
-<div class="section-header">
-  <div class="section-title">⚡ En Vedette</div>
-  <div class="see-all">Voir tout →</div>
-</div>
-
-<div class="featured-scroll">
-  <div class="featured-card">
-    <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80">
-    <div class="featured-overlay"></div>
-    <div class="featured-info">
-      <div class="featured-title">iPhone 14 Pro Max 256GB</div>
-      <div class="featured-price">650 000 FCFA</div>
+  <div class="auth-card animate">
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="showTab('login')">Connexion</button>
+      <button class="auth-tab" onclick="showTab('register')">Inscription</button>
     </div>
-    <button class="fav-btn">🤍</button>
-    <div class="trending-badge">🔥 Tendance</div>
-  </div>
-  <div class="featured-card">
-    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80">
-    <div class="featured-overlay"></div>
-    <div class="featured-info">
-      <div class="featured-title">MacBook Pro M2 2023</div>
-      <div class="featured-price">1 200 000 FCFA</div>
-    </div>
-    <button class="fav-btn">🤍</button>
-    <div class="new-badge">⭐ Vedette</div>
-  </div>
-  <div class="featured-card">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80">
-    <div class="featured-overlay"></div>
-    <div class="featured-info">
-      <div class="featured-title">Nike Air Jordan 1</div>
-      <div class="featured-price">85 000 FCFA</div>
-    </div>
-    <button class="fav-btn">🤍</button>
-  </div>
-</div>
 
-<div class="wave-banner animate">
-  <div style="font-size:36px">🔒</div>
-  <div class="wave-text">
-    <h3>Paiement Sécurisé Escrow</h3>
-    <p>Wave • Orange Money • Free Money • Visa</p>
-  </div>
-</div>
-
-<div class="section-header">
-  <div class="section-title">🆕 Annonces Récentes</div>
-  <div class="see-all">Voir tout →</div>
-</div>
-
-<div class="grid">
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80">
-    <div class="new-badge">🆕 Nouveau</div>
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Cours Maths MPSI</div>
-      <div class="card-price">5 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 UIDT</span>
-        <span class="verified">✓ Vérifié</span>
+    <!-- LOGIN -->
+    <div id="loginForm">
+      <div class="input-group">
+        <label class="input-label">Email étudiant</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉️</span>
+          <input class="input-field" type="email" placeholder="prenom@etudiant.sn">
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Mot de passe</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input class="input-field" type="password" placeholder="••••••••">
+        </div>
+      </div>
+      <button class="btn-primary" onclick="goHome()">🚀 Se connecter</button>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">ou</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="social-btns">
+        <button class="social-btn" onclick="goHome()">🔵 Google</button>
+        <button class="social-btn" onclick="showOTP()">📱 OTP</button>
       </div>
     </div>
-  </div>
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&q=80">
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Chambre meublée</div>
-      <div class="card-price">75 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 Thiès</span>
-        <span class="verified">✓ Vérifié</span>
+
+    <!-- REGISTER -->
+    <div id="registerForm" style="display:none">
+      <div class="input-group">
+        <label class="input-label">Nom complet</label>
+        <div class="input-wrap">
+          <span class="input-icon">👤</span>
+          <input class="input-field" type="text" placeholder="Prénom Nom">
+        </div>
       </div>
+      <div class="input-group">
+        <label class="input-label">Université</label>
+        <div class="input-wrap">
+          <span class="input-icon">🎓</span>
+          <select class="select-field">
+            <option>UIDT — Université Ibader Thiam de Thiès</option>
+            <option>UCAD — Université Cheikh Anta Diop</option>
+            <option>ESP — École Supérieure Polytechnique</option>
+            <option>EPT — École Polytechnique de Thiès</option>
+            <option>UGB — Université Gaston Berger</option>
+            <option>ISM — Institut Supérieur de Management</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Email étudiant</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉️</span>
+          <input class="input-field" type="email" placeholder="prenom@etudiant.sn">
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Téléphone</label>
+        <div class="input-wrap">
+          <span class="input-icon">📱</span>
+          <input class="input-field" type="tel" placeholder="+221 77 000 00 00">
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Mot de passe</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input class="input-field" type="password" placeholder="••••••••">
+        </div>
+      </div>
+      <button class="btn-primary" onclick="goHome()">📝 Créer mon compte</button>
     </div>
-  </div>
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80">
-    <div class="trending-badge">🔥 Hot</div>
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Sony WH-1000XM5</div>
-      <div class="card-price">180 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 Thiès</span>
-        <span class="verified">✓ Vérifié</span>
+
+    <!-- OTP -->
+    <div id="otpForm" style="display:none;text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">📱</div>
+      <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px">Vérification OTP</h3>
+      <p style="color:#64748B;font-size:13px;margin-bottom:20px">Code envoyé au +221 77 000 00 00</p>
+      <div class="otp-wrap">
+        <input class="otp-input" maxlength="1">
+        <input class="otp-input" maxlength="1">
+        <input class="otp-input" maxlength="1">
+        <input class="otp-input" maxlength="1">
+        <input class="otp-input" maxlength="1">
+        <input class="otp-input" maxlength="1">
       </div>
-    </div>
-  </div>
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80">
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Casio G-Shock</div>
-      <div class="card-price">45 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 Thiès</span>
-        <span class="verified">✓ Vérifié</span>
-      </div>
-    </div>
-  </div>
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80">
-    <div class="new-badge">🛠️ Service</div>
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Cours Physique</div>
-      <div class="card-price">15 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 UIDT</span>
-        <span class="verified">✓ Vérifié</span>
-      </div>
-    </div>
-  </div>
-  <div class="card" style="position:relative">
-    <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&q=80">
-    <button class="fav-btn">🤍</button>
-    <div class="card-body">
-      <div class="card-title">Samsung Galaxy Tab</div>
-      <div class="card-price">380 000 FCFA</div>
-      <div class="card-meta">
-        <span class="card-location">📍 Thiès</span>
-        <span class="verified">✓ Vérifié</span>
-      </div>
+      <button class="btn-primary" onclick="goHome()">✓ Confirmer</button>
+      <p onclick="showTab('login')" style="color:#1D4ED8;font-size:12px;margin-top:16px;cursor:pointer">← Retour</p>
     </div>
   </div>
 </div>
-
 </div>
 
-<div class="bottom-nav">
-  <div class="nav-item active">
-    <div class="nav-icon">🏠</div>
-    <span>Accueil</span>
-    <div class="nav-dot"></div>
+<!-- ═══ HOME PAGE ═══ -->
+<div id="homePage" class="page">
+  <div class="header">
+    <div class="logo">🎓 Campus Market</div>
+    <div class="location">📍 UIDT Thiès</div>
   </div>
-  <div class="nav-item">
-    <div class="nav-icon">🔍</div>
-    <span>Explorer</span>
-  </div>
-  <div class="nav-item">
-    <div class="sell-btn">➕</div>
-    <span style="color:#10B981;font-weight:700;margin-top:4px">Vendre</span>
-  </div>
-  <div class="nav-item">
-    <div class="nav-icon">💬</div>
-    <span>Messages</span>
-  </div>
-  <div class="nav-item">
-    <div class="nav-icon">👤</div>
-    <span>Profil</span>
-  </div>
-</div>
-
-</body>
-  </html>
+  <div class="home-content">
+    <div class="hero">
+      <div class="uidt-badge">🎓 Université Ibader Thiam de Thiès</div><br>
+      <div class="first-badge">✓ Première marketplace étudiante du Sénégal</div>
+      <h1>Achète & Vends sur ton Campus</h1>
+      <p>La plateforme sécurisée des étudiants sénégalais 🇸🇳</p>
+      <div class="search-wrap">
+        <span class="search-icon-h">🔍</span>
+        <input class="search-h" placeholder="Rechercher produits, services, logements...">
+      </div>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active">Tout</button>
+      <button class="filter-btn">⚡ Vedettes</button>
+      <button class="filter-btn">🔥 Tendances</button>
+      <button class="filter-btn">✓ Vérifiés</button>
+      <button class="filter-btn">🆕 Récents</button>
+    </div>
+    <div class="cats">
+      <div class="cat active">Tout</div>
+      <div class="cat">📱 Téléphones</div>
+      <div class="cat">💻 Ordinateurs</div>
+      <div class="cat">📚 Livres</div>
+      <div class="cat">👗 Vêtements</div>
+      <div class="cat">⌚ Montres</div>
+      <div class="cat">🔌 Électronique</div>
+      <div class="cat">⚽ Sport</div>
+      <div class="cat">🛠️ Services</div>
+      <div class="cat">🏠 Logement</div>
+      <div class="cat">💼 Emplois</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">247</div><div class="stat-label">Étudiants</div></div>
+      <div class="stat-card"><div class="stat-num">89</div><div class="stat-label">Annonces</div></div>
+      <div class="stat-card"><div class="stat-num">4.9★</div><div class="stat-label">Note moy.</div></div>
+    </div>
+    <div class="section-header">
+      <div class="section-title">⚡ En Vedette</div>
+      <div class="see-all">Voir tout →</div>
+    </div>
+    <div class="featured-scroll">
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80">
+        <div class="featured-overlay"></div>
+        <div class="featured-info"><div class="featured-title">iPhone 14 Pro Max</div><div class="featured-price">650 000 FCFA</div></div>
+        <button class="fav-btn">🤍</button>
+        <div class="badge-hot">🔥 Tendance</div>
+      </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80">
+        <div class="featured-overlay"></div>
+        <div class="featured-info"><div class="featured-title">MacBook Pro M2</div><div class="featured-price">1 200 000 FCFA</div></div>
+        <button class="fav-btn">🤍</button>
+        <div class="badge-new">⭐ Vedette</div>
+      </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80">
+        <div class="featured-overlay"></div>
+        <div class="featured-info"><div class="featured-title">Nike Air Jordan 1</div><div class="featured-price">85 000 FCFA</div></div>
+        <button class="fav-btn">🤍</button>
+      </div>
+    </div>
+    <div class="wave-banner">
+      <div style="font-size:36px">🔒</div>
+      <div class="wave-text"><h3>Paiement Sécurisé Escrow</h3><p>Wave • Orange Money • Free Money • Visa</p></div>
+    </div>
+    <div class="section-header">
+      <div class="section-title">🆕 Annonces Récentes</div>
+      <div class="see-all">Voir tout →</div>
+    </div>
+    <div class="grid">
+      <div class="card" style="position:relative">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80">
+        <div class="badge-new">🆕</div><button class="fav-btn">🤍</button>
+        <div class="card-body"><div class="card-title">Cours Maths MPSI</div><div class="card-price">5 000 FCFA</div><div class="card-meta"><span class="card-location">📍 UIDT</span>
