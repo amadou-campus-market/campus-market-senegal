@@ -320,3 +320,360 @@ body{background:#0F172A;color:white;font-family:'DM Sans',sans-serif;min-height:
         <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&q=80">
         <div class="badge-new">🆕</div><button class="fav-btn">🤍</button>
         <div class="card-body"><div class="card-title">Cours Maths MPSI</div><div class="card-price">5 000 FCFA</div><div class="card-meta"><span class="card-location">📍 UIDT</span>
+             </div>
+      <div class="card" onclick="goAuth()">
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&q=80" alt="Chambre">
+        <div class="card-body"><div class="card-title">Chambre meublée</div><div class="card-price">75 000 FCFA</div><div class="card-meta"><span class="card-loc">📍 Thiès</span><span class="verified">✓ Vérifié</span></div></div>
+      </div>
+      <div class="card" onclick="goAuth()">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Sony">
+        <div class="badge-hot">🔥 Hot</div>
+        <div class="card-body"><div class="card-title">Sony WH-1000XM5</div><div class="card-price">180 000 FCFA</div><div class="card-meta"><span class="card-loc">📍 Thiès</span><span class="verified">✓ Vérifié</span></div></div>
+      </div>
+      <div class="card" onclick="goAuth()">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Casio">
+        <div class="card-body"><div class="card-title">Casio G-Shock</div><div class="card-price">45 000 FCFA</div><div class="card-meta"><span class="card-loc">📍 Thiès</span><span class="verified">✓ Vérifié</span></div></div>
+      </div>
+      <div class="card" onclick="goAuth()">
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80" alt="Physique">
+        <div class="badge-service">🛠️ Service</div>
+        <div class="card-body"><div class="card-title">Cours Physique</div><div class="card-price">15 000 FCFA</div><div class="card-meta"><span class="card-loc">📍 UIDT</span><span class="verified">✓ Vérifié</span></div></div>
+      </div>
+      <div class="card" onclick="goAuth()">
+        <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&q=80" alt="Samsung">
+        <div class="card-body"><div class="card-title">Samsung Galaxy Tab</div><div class="card-price">380 000 FCFA</div><div class="card-meta"><span class="card-loc">📍 Thiès</span><span class="verified">✓ Vérifié</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="goPage('home')"><div class="nav-icon">🏠</div><span>Accueil</span><div class="nav-dot"></div></div>
+    <div class="nav-item" onclick="goPage('home')"><div class="nav-icon">🔍</div><span>Explorer</span></div>
+    <div class="sell-wrap" onclick="goSell()"><div class="sell-btn">➕</div><span class="sell-label">Vendre</span></div>
+    <div class="nav-item" onclick="goAuth()"><div class="nav-icon">💬</div><span>Messages</span></div>
+    <div class="nav-item" onclick="goAuth()"><div class="nav-icon">👤</div><span>Profil</span></div>
+  </div>
+</div>
+
+<!-- ════ PAGE AUTH ════ -->
+<div id="authPage" class="page">
+  <div class="auth-bg">
+    <div class="auth-logo animate">
+      <div class="auth-icon">🎓</div>
+      <h1>Campus Market</h1>
+      <p>SÉNÉGAL • UIDT THIÈS</p>
+    </div>
+    <div class="auth-card animate">
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="showTab('login')">Connexion</button>
+        <button class="auth-tab" onclick="showTab('register')">Inscription</button>
+      </div>
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <div class="input-group">
+          <label class="input-label">Email étudiant</label>
+          <div class="input-wrap"><span class="input-icon">✉️</span><input class="input-field" type="email" placeholder="prenom@etudiant.sn"></div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Mot de passe</label>
+          <div class="input-wrap"><span class="input-icon">🔒</span><input class="input-field" type="password" placeholder="••••••••"></div>
+        </div>
+        <button class="btn-main" onclick="goProfile()">🚀 Se connecter</button>
+        <div class="divider"><div class="divider-line"></div><span class="divider-text">ou continuer avec</span><div class="divider-line"></div></div>
+        <div class="social-btns">
+          <button class="social-btn" onclick="goProfile()">🔵 Google</button>
+          <button class="social-btn" onclick="showOTP()">📱 OTP</button>
+        </div>
+        <div class="back-link" onclick="goPage('home')">← Retour à l'accueil</div>
+      </div>
+      <!-- REGISTER -->
+      <div id="registerForm" style="display:none">
+        <div class="input-group">
+          <label class="input-label">Nom complet</label>
+          <div class="input-wrap"><span class="input-icon">👤</span><input class="input-field" type="text" placeholder="Prénom Nom"></div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Université</label>
+          <div class="input-wrap"><span class="input-icon">🎓</span>
+            <select class="select-field">
+              <option>UIDT — Université Ibader Thiam de Thiès</option>
+              <option>UCAD — Université Cheikh Anta Diop</option>
+              <option>ESP — École Supérieure Polytechnique</option>
+              <option>EPT — École Polytechnique de Thiès</option>
+              <option>UGB — Université Gaston Berger</option>
+              <option>ISM — Institut Supérieur de Management</option>
+              <option>IAGE — Institut Africain de Gestion</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Email étudiant</label>
+          <div class="input-wrap"><span class="input-icon">✉️</span><input class="input-field" type="email" placeholder="prenom@etudiant.sn"></div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Téléphone</label>
+          <div class="input-wrap"><span class="input-icon">📱</span><input class="input-field" type="tel" placeholder="+221 77 000 00 00"></div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Mot de passe</label>
+          <div class="input-wrap"><span class="input-icon">🔒</span><input class="input-field" type="password" placeholder="••••••••"></div>
+        </div>
+        <button class="btn-main" onclick="goProfile()">📝 Créer mon compte</button>
+        <div class="back-link" onclick="goPage('home')">← Retour à l'accueil</div>
+      </div>
+      <!-- OTP -->
+      <div id="otpForm" style="display:none;text-align:center">
+        <div style="font-size:48px;margin-bottom:12px">📱</div>
+        <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;color:#F1F5F9">Vérification OTP</h3>
+        <p style="color:#64748B;font-size:13px;margin-bottom:20px">Code envoyé au +221 77 000 00 00</p>
+        <div class="otp-wrap">
+          <input class="otp-input" maxlength="1">
+          <input class="otp-input" maxlength="1">
+          <input class="otp-input" maxlength="1">
+          <input class="otp-input" maxlength="1">
+          <input class="otp-input" maxlength="1">
+          <input class="otp-input" maxlength="1">
+        </div>
+        <button class="btn-main" onclick="goProfile()">✓ Confirmer le code</button>
+        <div class="back-link" onclick="showTab('login')">← Retour</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PAGE PROFIL ════ -->
+<div id="profilePage" class="page">
+  <div class="profile-header-bg">
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:20px">
+      <button onclick="goPage('home')" style="background:rgba(255,255,255,0.2);border:none;border-radius:10px;padding:7px 14px;color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">← Accueil</button>
+    </div>
+    <div class="profile-avatar">🎓</div>
+    <div class="profile-name">Amadou Diallo</div>
+    <div class="profile-badges">
+      <span class="p-badge p-badge-green">✓ Étudiant vérifié</span>
+      <span class="p-badge p-badge-gold">👑 Premium</span>
+    </div>
+    <div class="profile-univ">🎓 UIDT • Thiès</div>
+  </div>
+  <div style="padding-bottom:100px">
+    <div class="profile-stats">
+      <div class="p-stat"><div class="p-stat-num">12</div><div class="p-stat-label">Annonces</div></div>
+      <div class="p-stat"><div class="p-stat-num">4.8★</div><div class="p-stat-label">Note</div></div>
+      <div class="p-stat"><div class="p-stat-num">47</div><div class="p-stat-label">Ventes</div></div>
+    </div>
+    <div class="wallet-card">
+      <div class="wallet-deco"></div>
+      <div class="wallet-deco2"></div>
+      <div class="wallet-label">💳 MON PORTEFEUILLE</div>
+      <div class="wallet-amount">125 000 <span style="font-size:16px;opacity:0.8">FCFA</span></div>
+      <div class="wallet-btns">
+        <button class="wallet-btn">📥 Déposer</button>
+        <button class="wallet-btn">📤 Retirer</button>
+        <button class="wallet-btn">↔️ Transfert</button>
+      </div>
+    </div>
+    <div class="section-pad"><div class="section-pad-title">Mon compte</div></div>
+    <div class="menu-item"><span class="menu-icon">👤</span><span class="menu-label">Modifier mon profil</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">📦</span><span class="menu-label">Mes annonces</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">❤️</span><span class="menu-label">Mes favoris</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">🔔</span><span class="menu-label">Notifications</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">🔒</span><span class="menu-label">Sécurité & 2FA</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">💳</span><span class="menu-label">Paiements Wave / Orange</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">🎓</span><span class="menu-label">Vérification étudiant UIDT</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">🛡️</span><span class="menu-label">Dashboard Admin</span><span class="menu-arrow">›</span></div>
+    <div class="menu-item"><span class="menu-icon">❓</span><span class="menu-label">Aide & Support</span><span class="menu-arrow">›</span></div>
+    <button class="logout-btn" onclick="logout()">🚪 Se déconnecter</button>
+  </div>
+  <div class="bottom-nav">
+    <div class="nav-item" onclick="goPage('home')"><div class="nav-icon">🏠</div><span>Accueil</span></div>
+    <div class="nav-item" onclick="goPage('home')"><div class="nav-icon">🔍</div><span>Explorer</span></div>
+    <div class="sell-wrap" onclick="goSell()"><div class="sell-btn">➕</div><span class="sell-label">Vendre</span></div>
+    <div class="nav-item"><div class="nav-icon">💬</div><span>Messages</span></div>
+    <div class="nav-item active"><div class="nav-icon">👤</div><span>Profil</span><div class="nav-dot"></div></div>
+  </div>
+</div>
+
+<!-- ════ PAGE VENDRE ════ -->
+<div id="sellPage" class="page">
+  <div class="header">
+    <div class="logo">📢 Publier</div>
+    <button onclick="goPage('home')" style="background:rgba(255,255,255,0.2);border:none;border-radius:10px;padding:7px 14px;color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">✕ Annuler</button>
+  </div>
+  <div class="sell-page-content">
+    <div class="sell-title">Nouvelle annonce</div>
+    <div class="sell-subtitle" id="stepLabel">Étape 1 sur 3 — Photos</div>
+    <div class="progress-bar">
+      <div class="progress-step done" id="step1bar"></div>
+      <div class="progress-step pending" id="step2bar"></div>
+      <div class="progress-step pending" id="step3bar"></div>
+    </div>
+    <!-- STEP 1 -->
+    <div id="sellStep1">
+      <div class="step-title">📸 Ajoute tes photos</div>
+      <div class="photo-grid">
+        <div class="photo-slot main"><div class="photo-slot-icon">📷</div><div class="photo-slot-text">Photo principale</div></div>
+        <div class="photo-slot"><div class="photo-slot-icon" style="font-size:22px;opacity:0.3">+</div></div>
+        <div class="photo-slot"><div class="photo-slot-icon" style="font-size:22px;opacity:0.3">+</div></div>
+        <div class="photo-slot"><div class="photo-slot-icon" style="font-size:22px;opacity:0.3">+</div></div>
+        <div class="photo-slot"><div class="photo-slot-icon" style="font-size:22px;opacity:0.3">+</div></div>
+        <div class="photo-slot"><div class="photo-slot-icon" style="font-size:22px;opacity:0.3">+</div></div>
+      </div>
+      <p style="color:#64748B;font-size:12px;text-align:center;margin-bottom:20px">Maximum 10 photos • Vidéo optionnelle</p>
+      <button class="btn-next" style="width:100%" onclick="goStep(2)">Suivant → Informations</button>
+    </div>
+    <!-- STEP 2 -->
+    <div id="sellStep2" style="display:none">
+      <div class="step-title">📋 Informations du produit</div>
+      <div class="input-group">
+        <label class="input-label">Titre de l'annonce</label>
+        <div class="input-wrap"><span class="input-icon">📝</span><input class="input-field" type="text" placeholder="Ex: iPhone 14 Pro Max 256GB"></div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Prix (FCFA)</label>
+        <div class="input-wrap"><span class="input-icon">💰</span><input class="input-field" type="number" placeholder="0 = Gratuit"></div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Catégorie</label>
+        <div class="input-wrap"><span class="input-icon">🏷️</span>
+          <select class="select-field">
+            <option>📱 Téléphones & Accessoires</option>
+            <option>💻 Ordinateurs & Tablettes</option>
+            <option>📚 Livres & Fournitures</option>
+            <option>👗 Vêtements & Chaussures</option>
+            <option>⌚ Montres</option>
+            <option>🔌 Électronique</option>
+            <option>⚽ Sport & Loisirs</option>
+            <option>🛋️ Mobilier</option>
+            <option>🛠️ Services</option>
+            <option>🏠 Logement étudiant</option>
+            <option>💼 Emplois & Stages</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">État</label>
+        <div class="input-wrap"><span class="input-icon">📦</span>
+          <select class="select-field">
+            <option>Neuf</option>
+            <option>Très bon état</option>
+            <option>Bon état</option>
+            <option>État correct</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Description</label>
+        <button class="ai-btn" onclick="generateAI()">✨ Générer avec l'IA</button>
+        <div id="aiResult" style="display:none" class="ai-suggestion">
+          <div class="ai-suggestion-title">✨ Description générée par IA</div>
+          <div class="ai-suggestion-text">Article en excellent état, soigneusement entretenu. Vendu avec tous ses accessoires d'origine. Idéal pour les étudiants de l'UIDT. Prix négociable dans la limite du raisonnable. Disponible pour livraison sur campus ou rendez-vous à Thiès.</div>
+        </div>
+        <textarea class="textarea-field" placeholder="Décrivez votre article en détail..."></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep(1)">← Retour</button>
+        <button class="btn-next" onclick="goStep(3)">Suivant → Livraison</button>
+      </div>
+    </div>
+    <!-- STEP 3 -->
+    <div id="sellStep3" style="display:none">
+      <div class="step-title">📦 Mode de livraison</div>
+      <div class="delivery-option selected" id="del1" onclick="selectDel(1)">
+        <div class="delivery-icon">🏠</div>
+        <div><div class="delivery-title">Livraison à domicile</div><div class="delivery-desc">Je livre chez l'acheteur à Thiès</div></div>
+      </div>
+      <div class="delivery-option" id="del2" onclick="selectDel(2)">
+        <div class="delivery-icon">🤝</div>
+        <div><div class="delivery-title">Remise en main propre</div><div class="delivery-desc">Rendez-vous sur le campus UIDT</div></div>
+      </div>
+      <div class="delivery-option" id="del3" onclick="selectDel(3)">
+        <div class="delivery-icon">🚚</div>
+        <div><div class="delivery-title">Les deux options</div><div class="delivery-desc">Flexible selon l'acheteur</div></div>
+      </div>
+      <div class="ai-suggestion" style="margin-top:16px">
+        <div class="ai-suggestion-title">💡 Prix suggéré par l'IA</div>
+        <div class="ai-suggestion-text">Basé sur les annonces similaires à l'UIDT : <strong style="color:#F1F5F9">450 000 – 600 000 FCFA</strong></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep(2)">← Retour</button>
+        <button class="btn-next" onclick="publishAd()">🚀 Publier l'annonce</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Navigation
+function goPage(p) {
+  ['homePage','authPage','profilePage','sellPage'].forEach(id => {
+    document.getElementById(id).classList.remove('active');
+  });
+  const map = {home:'homePage',auth:'authPage',profile:'profilePage',sell:'sellPage'};
+  document.getElementById(map[p] || 'homePage').classList.add('active');
+  window.scrollTo(0,0);
+}
+function goAuth() { goPage('auth'); }
+function goProfile() { goPage('profile'); }
+function goSell() { goPage('sell'); }
+function logout() { goPage('auth'); }
+
+// Auth tabs
+function showTab(tab) {
+  document.getElementById('loginForm').style.display = tab==='login' ? 'block' : 'none';
+  document.getElementById('registerForm').style.display = tab==='register' ? 'block' : 'none';
+  document.getElementById('otpForm').style.display = 'none';
+  document.querySelectorAll('.auth-tab').forEach((t,i) => {
+    t.classList.toggle('active', (tab==='login'&&i===0)||(tab==='register'&&i===1));
+  });
+}
+function showOTP() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('otpForm').style.display = 'block';
+}
+
+// Sell steps
+function goStep(n) {
+  [1,2,3].forEach(i => {
+    document.getElementById('sellStep'+i).style.display = i===n ? 'block' : 'none';
+    document.getElementById('step'+i+'bar').className = 'progress-step ' + (i<=n ? 'done' : 'pending');
+  });
+  document.getElementById('stepLabel').textContent = 'Étape '+n+' sur 3 — '+(n===1?'Photos':n===2?'Informations':'Livraison');
+  window.scrollTo(0,0);
+}
+function selectDel(n) {
+  [1,2,3].forEach(i => {
+    document.getElementById('del'+i).classList.toggle('selected', i===n);
+  });
+}
+function generateAI() {
+  document.getElementById('aiResult').style.display = 'block';
+}
+function publishAd() {
+  alert('🎉 Annonce publiée avec succès !');
+  goPage('home');
+}
+
+// OTP auto-focus
+document.querySelectorAll('.otp-input').forEach((inp,i,arr) => {
+  inp.addEventListener('input', () => {
+    if(inp.value && i < arr.length-1) arr[i+1].focus();
+  });
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Category buttons
+document.querySelectorAll('.cat').forEach(cat => {
+  cat.addEventListener('click', function() {
+    document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+        </html>
